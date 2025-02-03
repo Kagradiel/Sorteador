@@ -1,0 +1,159 @@
+:root {
+  --color-primary: #4b69fd;
+  --color-secondary: #fff9eb;
+  --color-tertiary: #c4c4c4;
+  --color-button: #fe652b;
+  --color-button-hover: #e55720;
+  --color-text: #444444;
+  --color-white: #ffffff;
+  --color-border: #ddd;
+  --color-success: #05df05;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 90%;
+  max-width: 500px;
+  background: var(--color-secondary);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.header-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.input-name {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.button-add {
+  padding: 12px 20px;
+  background-color: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button-add:hover {
+  background-color: var(--color-button-hover);
+}
+
+.name-list,
+.result-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.name-list li {
+  background: var(--color-white);
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-border);
+}
+
+.name-list li .name-wrapper {
+  flex: 1;
+  text-align: left;
+}
+
+.name-list button {
+  background: crimson;
+  color: var(--color-white);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-left: 10px;
+}
+
+.name-list button:hover {
+  background: darkred;
+}
+
+.button-draw {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-draw:hover {
+  background-color: var(--color-button-hover);
+}
+
+.button-draw img {
+  width: 20px;
+  height: 20px;
+}
+
+.result-list {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-success);
+  text-align: center;
+}
