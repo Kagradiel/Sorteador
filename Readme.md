@@ -1,21 +1,21 @@
-# Amigo Secreto
+# Sorteador
 
-Este é um programa simples de **Amigo Secreto**, onde você pode adicionar, editar e remover amigos, além de sortear aleatoriamente um amigo secreto entre os participantes. Os dados da lista de amigos são armazenados no **localStorage**, o que garante que a lista persista entre as sessões do navegador.
+Este é um programa simples de **Sorteio**, onde você pode adicionar, editar e remover nomes, além de sortear aleatoriamente um nome secreto entre os participantes. Os dados da lista de nomes são armazenados no **localStorage**, o que garante que a lista persista entre as sessões do navegador.
 
 ## Funcionalidades
 
-- **Adicionar amigos:** Insira o nome de seus amigos para participar do sorteio.
-- **Editar amigos:** Modifique o nome de qualquer amigo da lista.
-- **Remover amigos:** Exclua amigos da lista de participantes.
-- **Sortear amigo secreto:** Realize o sorteio de um amigo secreto de maneira aleatória.
-- **Persistência de dados:** Os dados dos amigos são armazenados no `localStorage`, garantindo que a lista de amigos seja preservada entre as sessões do navegador.
+- **Adicionar nomes:** Insira o nome de seus nomes para participar do sorteio.
+- **Editar nomes:** Modifique o nome de qualquer amigo da lista.
+- **Remover nomes:** Exclua nomes da lista de participantes.
+- **Sortear nomes secreto:** Realize o sorteio de um nomes secreto de maneira aleatória.
+- **Persistência de dados:** Os dados dos nomes são armazenados no `localStorage`, garantindo que a lista de nomes seja preservada entre as sessões do navegador.
 
 ## Como usar
 
-1. **Adicionar amigos:** No campo de entrada, digite o nome de um amigo e clique no botão "Adicionar". Apenas nomes válidos (somente letras) serão aceitos.
-2. **Editar amigos:** Clique no botão "Editar" ao lado do nome de qualquer amigo da lista para alterá-lo.
-3. **Remover amigos:** Clique no botão "Remover" ao lado do nome de qualquer amigo para removê-lo da lista.
-4. **Sortear amigo secreto:** Após adicionar amigos, clique no botão "Sortear amigo" para realizar o sorteio. O nome do amigo sorteado será exibido na tela.
+1. **Adicionar nomes:** No campo de entrada, digite o nome de um amigo e clique no botão "Adicionar". Apenas nomes válidos (somente letras) serão aceitos.
+2. **Editar nomes:** Clique no botão "Editar" ao lado do nome de qualquer amigo da lista para alterá-lo.
+3. **Remover nomes:** Clique no botão "Remover" ao lado do nome de qualquer amigo para removê-lo da lista.
+4. **Sortear nomes secreto:** Após adicionar nomes, clique no botão "Sortear nomes" para realizar o sorteio. O nome do amigo sorteado será exibido na tela.
 
 ## Tecnologias utilizadas
 
