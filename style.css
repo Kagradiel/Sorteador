@@ -1,13 +1,34 @@
 :root {
-  --color-primary: #4b69fd;
-  --color-secondary: #fff9eb;
+  --color-primary: #eef8fa;
+  --color-secondary: #6e93b1ec;
   --color-tertiary: #c4c4c4;
-  --color-button: #fe652b;
-  --color-button-hover: #e55720;
-  --color-text: #444444;
+  --color-button: #03283daf;
+  --color-button-hover: #053d53;
+  --color-text: #0c0c0c;
   --color-white: #ffffff;
   --color-border: #ddd;
-  --color-success: #05df05;
+  --color-success: #106385;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+button:active {
+  background-color: var(--color-button-hover);
+  transform: scale(0.98);
+}
+
+h2,
+h3 {
+  color: var(--color-white);
 }
 
 * {
@@ -18,21 +39,37 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100dvh;
   background-color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+}
+
+.error-message {
+  color: rgb(250, 220, 220);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: -5px;
+  text-align: left;
+}
+
+.order {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: 90%;
-  max-width: 500px;
+  gap: 20px;
+  width: 100%;
   background: var(--color-secondary);
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -45,8 +82,13 @@ body {
   margin-bottom: 20px;
 }
 
+.header-banner img {
+  width: 70%;
+  max-width: 300px;
+}
+
 .main-title {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 900;
   color: var(--color-primary);
 }
@@ -62,15 +104,17 @@ body {
   display: flex;
   width: 100%;
   gap: 10px;
+  flex-direction: column;
 }
 
 .input-name {
   flex: 1;
   padding: 12px;
   border: 2px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 16px;
   outline: none;
+  width: 100%;
 }
 
 .button-add {
@@ -78,13 +122,63 @@ body {
   background-color: var(--color-button);
   color: var(--color-white);
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100%;
+  max-width: 160px;
+  align-self: center;
 }
 
 .button-add:hover {
   background-color: var(--color-button-hover);
+}
+
+.name-text {
+  display: inline-block;
+  padding: 8px;
+  min-width: 80px;
+  word-break: break-word;
+}
+
+.input-edit {
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  min-width: 80px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.button-save,
+.button-cancel {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-save {
+  background-color: var(--color-button);
+  color: var(--color-white);
+}
+
+.button-save:hover {
+  background-color: var(--color-button-hover);
+}
+
+.button-cancel {
+  background-color: #ccc;
+  color: #444;
+}
+
+.button-cancel:hover {
+  background-color: #bbb;
 }
 
 .name-list,
@@ -99,31 +193,33 @@ body {
   background: var(--color-white);
   padding: 10px;
   margin-top: 5px;
-  border-radius: 8px;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--color-border);
+  flex-wrap: wrap;
 }
 
 .name-list li .name-wrapper {
   flex: 1;
   text-align: left;
+  min-width: 0;
 }
 
 .name-list button {
-  background: crimson;
+  background: var(--color-secondary);
   color: var(--color-white);
   border: none;
   padding: 5px 10px;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
   margin-left: 10px;
 }
 
 .name-list button:hover {
-  background: darkred;
+  background: rgb(24, 79, 161);
 }
 
 .button-draw {
@@ -132,7 +228,7 @@ body {
   background-color: var(--color-button);
   color: var(--color-white);
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   transition: background 0.3s;
@@ -151,9 +247,129 @@ body {
   height: 20px;
 }
 
+.button-draw:active {
+  background-color: var(--color-button-hover);
+  transform: scale(0.98);
+}
+
+#resultado-container.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+#resultado-container {
+  background: var(--color-secondary);
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
 .result-list {
   font-size: 18px;
   font-weight: bold;
-  color: var(--color-success);
+  color: var(--color-secondary);
   text-align: center;
+  background-color: var(--color-white);
+  padding: 20px 0;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .input-wrapper {
+    flex-direction: row;
+  }
+
+  .button-add {
+    width: 160px;
+    align-self: auto;
+  }
+
+  .header-banner img {
+    width: 40vw;
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.75rem;
+  }
+
+  .name-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .name-list button {
+    margin-left: 0px;
+  }
+
+  .name-list li {
+    padding: 0 8px 5px 8px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .name-list li .name-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .button-container {
+    width: 100%;
+    padding: 0;
+    flex-direction: row;
+  }
+
+  .button-cancel,
+  .button-cancel,
+  .button-edit {
+    padding: 0;
+  }
+
+  .button-container button {
+    width: 100%;
+  }
+
+  
 }

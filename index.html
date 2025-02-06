@@ -3,64 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+
+
+    <title>Sorteio - Sorteie Nomes Online</title>
+
+
+    <meta
+      name="description"
+      content="Crie e sorteie nomes para seu sorteio de forma fácil e rápida. Simples, intuitivo e sem complicações!"
+    />
+
+
+    <meta
+      name="keywords"
+      content="Amigo Secreto, Sorteio Online, Sorteio de Nomes, Jogo de Amigo Secreto, Gerador de Nomes"
+    />
+
+
+    <meta name="author" content="Matheus Torres" />
+
+    <meta
+      property="og:title"
+      content="Sorteio secreto - Sorteie Nomes Online"
+    />
+    <meta
+      property="og:description"
+      content="Sorteie nomes para seu Sorteio de forma simples e divertida!"
+    />
+    <meta
+      property="og:image"
+      content="https://kagradiel.github.io/Sorteador/assets/amigo-secreto.png"
+    />
+    <meta property="og:url" content="https://kagradiel.github.io/Sorteador/" />
+    <meta property="og:type" content="website" />
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Amigo Secreto - Sorteie Nomes Online" />
+    <meta
+      name="twitter:description"
+      content="Sorteie nomes para seu Amigo Secreto de forma simples e divertida!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://kagradiel.github.io/Sorteador/assets/amigo-secreto.png"
+    />
+
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>Amigo Secreto</title>
+
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script src="app.js" defer></script>
   </head>
 
   <body>
-    <main class="main-content">
-      <header class="header-banner">
-        <h1 class="main-title">Amigo Secreto</h1>
-        <img
-          src="assets/amigo-secreto.png"
-          alt="Imagem representativa de amigo secreto"
-        />
-      </header>
+    <main class="order">
+      <div class="main-content">
 
-      <section class="input-section">
-        <h2 class="section-title">Digite o nome dos seus amigos</h2>
-        <div class="input-wrapper">
-          <input
-            type="text"
-            id="amigo"
-            class="input-name"
-            placeholder="Digite um nome"
-          />
-          <button class="button-add" onclick="adicionarAmigo()">
-            Adicionar
-          </button>
-        </div>
+        <header class="header-banner">
+            <h1 class="main-title">Sortear Nomes</h1>
+            <img src="assets/amigo-secreto.png" alt="Logo do Amigo Secreto" loading="lazy" />
+        </header>
 
-        <ul
-          id="listaAmigos"
-          class="name-list"
-          aria-labelledby="listaAmigos"
-          role="list"
-        ></ul>
-        <ul id="resultado" class="result-list" aria-live="polite"></ul>
+
+        <form class="input-section" onsubmit="event.preventDefault(); adicionarAmigo();">
+            <h2 class="section-title">Adicione os participantes</h2>
+            <div class="input-wrapper">
+                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome" aria-label="Nome do participante" />
+                <p id="amigo-error" class="error-message"></p>
+                <button type="submit" class="button-add">Adicionar</button>
+            </div>
+            
+        </form>
+
+
+        <section>
+            <h3>Lista de Participantes</h3>
+            <ul id="listaAmigos" class="name-list" role="list"></ul>
+        </section>
 
         <div class="button-container">
-          <button
-            class="button-draw"
-            onclick="sortearAmigo()"
-            aria-label="Sortear amigo secreto"
-          >
-            <img
-              src="assets/play_circle_outline.png"
-              alt="Ícone para sortear"
-            />
-            Sortear amigo
-          </button>
+            <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+              <img src="assets/play_circle_outline.png" alt="Ícone de sorteio" loading="lazy" />
+                Sortear amigo
+            </button>
         </div>
-      </section>
-    </main>
+      </div>
 
-    <script src="app.js" defer></script>
+
+        <article id="resultado-container">
+            <h3>Resultado do Sorteio</h3>
+            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+        </article>
+    </main>
+</body>
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Website",
+        "name": "Amigo Secreto",
+        "url": "https://kagradiel.github.io/Sorteador/",
+        "description": "Crie e sorteie nomes para seu sorteio de forma fácil e rápida!",
+        "author": {
+          "@type": "Person",
+          "name": "Matheus Torres"
+        }
+      }
+      </script>
   </body>
 </html>
