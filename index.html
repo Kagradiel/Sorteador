@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <title>Sorteio - Sorteie Nomes Online</title>
+    <title data-i18n="title">Sorteio - Sorteie Nomes Online</title>
 
 
     <meta
@@ -70,47 +70,47 @@
   <body>
     <main class="order">
       <div class="main-content">
-
         <header class="header-banner">
-            <h1 class="main-title">Sortear Nomes</h1>
-            <img src="assets/amigo-secreto.png" alt="Logo do Amigo Secreto" loading="lazy" />
+          <h1 class="main-title" data-i18n="mainTitle">Sortear Nomes</h1>
+          <img src="assets/amigo-secreto.png" alt="Logo do Amigo Secreto" />
         </header>
 
-
         <form class="input-section" onsubmit="event.preventDefault(); adicionarAmigo();">
-            <h2 class="section-title">Adicione os participantes</h2>
-            <div class="input-wrapper">
-              <div class="input-e-error">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome" aria-label="Nome do participante" />
-                <p id="amigo-error" class="error-message"></p>
-              </div>
-                <button type="submit" class="button-add">Adicionar</button>
+          <h2 class="section-title" data-i18n="addParticipants">Adicione os participantes</h2>
+          <div class="input-wrapper">
+            <div class="input-e-error">
+              <input
+                type="text"
+                id="amigo"
+                class="input-name"
+                placeholder=""
+                data-i18n-placeholder="namePlaceholder"
+              />
+              <p id="amigo-error" class="error-message"></p>
             </div>
-            
+            <button type="submit" class="button-add" data-i18n="add">Adicionar</button>
+          </div>
         </form>
 
-
         <section>
-            <h3>Lista de Participantes</h3>
-            <ul id="listaAmigos" class="name-list" role="list"></ul>
+          <h3 data-i18n="participantsList">Lista de Participantes</h3>
+          <ul id="listaAmigos" class="name-list" role="list"></ul>
         </section>
 
         <div class="button-container">
-            <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-              <img src="assets/play_circle_outline.png" alt="Ícone de sorteio" loading="lazy" />
-                Sortear amigo
-            </button>
+          <button class="button-draw" onclick="sortearAmigo()" data-i18n="drawSecretFriend">
+            Sortear amigo
+          </button>
         </div>
       </div>
 
-
-        <article id="resultado-container">
-            <h3>Resultado do Sorteio</h3>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
-        </article>
+      <article id="resultado-container">
+        <h3 data-i18n="drawResult">Resultado do Sorteio</h3>
+        <ul id="resultado" class="result-list"></ul>
+      </article>
     </main>
-</body>
-
+  </body>
+</html>
 
     <script type="application/ld+json">
       {

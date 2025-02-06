@@ -1,0 +1,20 @@
+
+{
+  "title": "Sorteio - Sorteie Nomes Online",
+  "mainTitle": "Sortear Nomes",
+  "addParticipants": "Adicione os participantes",
+  "namePlaceholder": "Digite o nome do participante",
+  "add": "Adicionar",
+  "participantsList": "Lista de Participantes",
+  "drawSecretFriend": "Sortear nome",
+  "drawResult": "Resultado do Sorteio",
+  "friendDrawn": "O nome sorteado é: {name}",
+  "errorMessageInvalidName": "Por favor, insira um nome válido (apenas letras)",
+  "errorMessageEmptyName": "Por favor, insira um nome.",
+  "errorMessageDuplicateName": "Este nome já está na lista.",
+  "errorMessageNoParticipants": "Adicione pelo menos um participante para o sorteio.",
+  "edit": "Editar",
+  "remove": "Remover",
+  "save": "Salvar",
+  "cancel": "Cancelar"
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Raffle - Draw Names Online",
+  "mainTitle": "Draw Names",
+  "addParticipants": "Add Participants",
+  "namePlaceholder": "Enter the participant's name",
+  "add": "Add",
+  "participantsList": "Participants List",
+  "drawSecretFriend": "Draw Name",
+  "drawResult": "Draw Result",
+  "friendDrawn": "The drawn name is: {name}",
+  "errorMessageInvalidName": "Please enter a valid name (only letters)",
+  "errorMessageEmptyName": "Please enter a name.",
+  "errorMessageDuplicateName": "This name is already in the list.",
+  "errorMessageNoParticipants": "Add at least one participant for the draw.",
+  "edit": "Edit",
+  "remove": "Remove",
+  "save": "Save",
+  "cancel": "Cancel"
+}
