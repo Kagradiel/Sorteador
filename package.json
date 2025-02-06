@@ -1,0 +1,24 @@
+{
+  "name": "challenge-amigo-secreto_pt",
+  "version": "1.0.0",
+  "description": "Este é um programa simples de **Amigo Secreto**, onde você pode adicionar, editar e remover amigos, além de sortear aleatoriamente um amigo secreto entre os participantes. Os dados da lista de amigos são armazenados no **localStorage**, o que garante que a lista persista entre as sessões do navegador.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kagradiel/Sorteador.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Kagradiel/Sorteador/issues"
+  },
+  "homepage": "https://github.com/Kagradiel/Sorteador#readme",
+  "dependencies": {
+    "vite": "^6.1.0"
+  }
+}

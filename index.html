@@ -4,21 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
     <title data-i18n="title">Sorteio - Sorteie Nomes Online</title>
-
 
     <meta
       name="description"
       content="Crie e sorteie nomes para seu sorteio de forma fácil e rápida. Simples, intuitivo e sem complicações!"
     />
 
-
     <meta
       name="keywords"
       content="Amigo Secreto, Sorteio Online, Sorteio de Nomes, Jogo de Amigo Secreto, Gerador de Nomes"
     />
-
 
     <meta name="author" content="Matheus Torres" />
 
@@ -37,7 +33,6 @@
     <meta property="og:url" content="https://kagradiel.github.io/Sorteador/" />
     <meta property="og:type" content="website" />
 
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Amigo Secreto - Sorteie Nomes Online" />
     <meta
@@ -49,9 +44,7 @@
       content="https://kagradiel.github.io/Sorteador/assets/amigo-secreto.png"
     />
 
-
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,11 +53,15 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="./src/style.css" />
 
-    <link rel="stylesheet" href="style.css" />
+    <script src="./src/app.js" defer type="module"></script>
 
-
-    <script src="app.js" defer></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      type="module"
+    ></script>
   </head>
 
   <body>
@@ -72,11 +69,16 @@
       <div class="main-content">
         <header class="header-banner">
           <h1 class="main-title" data-i18n="mainTitle">Sortear Nomes</h1>
-          <img src="assets/amigo-secreto.png" alt="Logo do Amigo Secreto" />
         </header>
 
-        <form class="input-section" onsubmit="event.preventDefault(); adicionarAmigo();">
-          <h2 class="section-title" data-i18n="addParticipants">Adicione os participantes</h2>
+        <div class="ad-container">
+          <div class="ad-unit" id="ad-unit-above-form"></div>
+        </div>
+
+        <form class="input-section" id="add-friend-form">
+          <h2 class="section-title" data-i18n="addParticipants">
+            Adicione os participantes
+          </h2>
           <div class="input-wrapper">
             <div class="input-e-error">
               <input
@@ -88,7 +90,9 @@
               />
               <p id="amigo-error" class="error-message"></p>
             </div>
-            <button type="submit" class="button-add" data-i18n="add">Adicionar</button>
+            <button type="submit" class="button-add" data-i18n="add">
+              Adicionar
+            </button>
           </div>
         </form>
 
@@ -97,10 +101,15 @@
           <ul id="listaAmigos" class="name-list" role="list"></ul>
         </section>
 
-        <div class="button-container">
-          <button class="button-draw" onclick="sortearAmigo()" data-i18n="drawSecretFriend">
-            Sortear amigo
-          </button>
+          <div class="button-container">
+            <button
+              class="button-draw"
+              id="sortear-amigo"
+              data-i18n="drawSecretFriend"
+            >
+              Sortear amigo
+            </button>
+          </div>
         </div>
       </div>
 
@@ -108,22 +117,13 @@
         <h3 data-i18n="drawResult">Resultado do Sorteio</h3>
         <ul id="resultado" class="result-list"></ul>
       </article>
-    </main>
-  </body>
-</html>
+      <div class="ad-container">
+        <div class="ad-unit" id="ad-unit-below-list"></div>
+      </div>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Website",
-        "name": "Amigo Secreto",
-        "url": "https://kagradiel.github.io/Sorteador/",
-        "description": "Crie e sorteie nomes para seu sorteio de forma fácil e rápida!",
-        "author": {
-          "@type": "Person",
-          "name": "Matheus Torres"
-        }
-      }
-      </script>
+      <div class="ad-container">
+        <div class="ad-unit" id="ad-unit-below-button"></div>
+
+    </main>
   </body>
 </html>

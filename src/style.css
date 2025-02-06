@@ -47,6 +47,27 @@ body {
   padding: 20px;
 }
 
+.ad-container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden; 
+  transition: max-height 0.3s ease; 
+}
+
+.ad-container:empty {
+  max-height: 0; 
+  margin: 0; 
+  padding: 0;
+}
+
+.ad-container:not(:empty) {
+  max-height: 120px;
+}
+
+.ad-unit {
+  width: 90%;
+}
+
 .error-message {
   color: rgb(250, 220, 220);
   font-size: 0.8rem;
@@ -317,7 +338,18 @@ body {
   margin-top: 5px;
 }
 
+@media (max-width: 991px) { 
+  .ad-container:not(:empty) {
+      max-height: 90px; 
+  }
+}
+
 @media (min-width: 768px) {
+
+  .ad-container:not(:empty) {
+    max-height: 70px; 
+  }
+
   .input-wrapper {
     flex-direction: row;
   }
@@ -337,6 +369,11 @@ body {
 }
 
 @media (max-width: 480px) {
+
+  .ad-container:not(:empty) {
+    max-height: 50px; 
+  }
+
   .main-title {
     font-size: 1.75rem;
   }

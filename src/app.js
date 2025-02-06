@@ -1,17 +1,29 @@
+import ptTranslations from './i18n/pt.json';
+import enTranslations from './i18n/en.json';
+
 const amigos = JSON.parse(localStorage.getItem("amigos")) || [];
 let translations = {};
 
 async function loadTranslations(lang) {
-    try {
-        const response = await fetch(`./i18n/${lang}.json`);
-        translations = await response.json();
-        updateText();
-    } catch (error) {
-        console.error("Error loading translations:", error);
-        translations = {};
-        updateText();
+    let translations;
+    if (lang === 'pt') {
+        translations = ptTranslations;
+    } else if (lang === 'en') {
+        translations = enTranslations;
+    } else {
+        
+        console.warn(`No translations found for language: ${lang}, falling back to english`);
+        translations = enTranslations; 
     }
+    return translations; 
 }
+
+async function initialize() {
+     const lang = getPreferredLanguage();
+     translations = await loadTranslations(lang); 
+     updateText();
+     atualizarLista();
+ }
 
 function translate(key, replacements = {}) {
     let translatedValue = translations[key] || key;
@@ -47,16 +59,7 @@ function getPreferredLanguage() {
         return storedLanguage;
     }
 
-
     return navigator.language.split('-')[0];
-}
-
-
-async function initialize() {
-    const lang = getPreferredLanguage();
-    await loadTranslations(lang);
-    updateText();
-    atualizarLista();
 }
 
 
@@ -70,20 +73,20 @@ function adicionarAmigo() {
     const input = document.getElementById("amigo");
     const nome = input.value.trim();
     const errorElement = document.getElementById("amigo-error");
-    errorElement.textContent = ""; 
+    errorElement.textContent = "";
 
-    if (!nome.match(/^[A-Za-zÀ-ÖØ-öø-ÿ]+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/)) {
+    if (!nome.match(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)) {  
         errorElement.textContent = translate("errorMessageInvalidName");
         return;
     }
 
     const nomeFormatado = formatarNome(nome);
-    if (!nome) { 
-        errorElement.textContent = translate("errorMessageEmptyName"); // New translation key
+    if (!nome) {
+        errorElement.textContent = translate("errorMessageEmptyName");
         return;
     }
     if (amigos.includes(nomeFormatado)) {
-        errorElement.textContent = translate("errorMessageDuplicateName");  // New Translation Key
+        errorElement.textContent = translate("errorMessageDuplicateName");
         return;
     }
 
@@ -91,7 +94,6 @@ function adicionarAmigo() {
     input.value = "";
     atualizarLista();
     salvarNoLocalStorage();
-
 }
 
 function sortearAmigo() {
@@ -198,7 +200,7 @@ function salvarEdicao(index, nomeEditavel, li) {
     const errorElement = document.getElementById("amigo-error");
     errorElement.textContent = "";
 
-    if (!nomeFormatado.match(/^[A-Za-zÀ-ÖØ-öø-ÿ]+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/)) {
+    if (!novoNome.match(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/)) {  
         errorElement.textContent = translate("errorMessageInvalidName");
         nomeEditavel.focus();
         return;
@@ -220,3 +222,44 @@ function removerAmigo(index) {
     atualizarLista();
     salvarNoLocalStorage();
 }
+
+function loadAds() {
+    const adsConfig = {
+        "ad-unit-above-form": import.meta.env.VITE_AD_UNIT_ABOVE_FORM,
+        "ad-unit-below-list": import.meta.env.VITE_AD_UNIT_BELOW_LIST,
+        "ad-unit-below-button": import.meta.env.VITE_AD_UNIT_BELOW_BUTTON,
+    };
+
+    const adClient = import.meta.env.VITE_AD_CLIENT;
+
+    Object.keys(adsConfig).forEach((id) => {
+        const adUnit = document.getElementById(id);
+        if (adUnit && adsConfig[id]) {
+            // Verifica se já existe um anúncio para não inserir múltiplos
+            if (!adUnit.querySelector("ins")) {
+                adUnit.insertAdjacentHTML("beforeend", `
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="${adClient}"
+                        data-ad-slot="${adsConfig[id]}"
+                        data-ad-format="auto"></ins>
+                `);
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadAds();
+
+    const addFriendForm = document.getElementById("add-friend-form");
+    addFriendForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        adicionarAmigo();
+    });
+
+    const sortearAmigoButton = document.getElementById("sortear-amigo");
+    console.log("sortearAmigoButton:", sortearAmigoButton); 
+    sortearAmigoButton.addEventListener("click", sortearAmigo);
+});
